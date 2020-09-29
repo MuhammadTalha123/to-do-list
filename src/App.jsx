@@ -13,6 +13,7 @@ const App = () => {
         setItems((oldItems) => {
             return[...oldItems, inputList];
         });
+        setInputList('');
     };
 
     return(
