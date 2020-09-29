@@ -2,10 +2,17 @@ import React, { useState } from 'react';
 
 const App = () => {
 
-    const [inputList, setInputList] = useState("buy mango");
+    const [inputList, setInputList] = useState("");
+    const [Items, setItems] = useState([]);
 
     const itemEvent = (event) => {
         setInputList(event.target.value);
+    };
+
+    const listOfItems = () => {
+        setItems((oldItems) => {
+            return[...oldItems, inputList];
+        });
     };
 
     return(
@@ -16,9 +23,14 @@ const App = () => {
                     <h1>ToDo List</h1>
                     <br />
                     <input type = "text" placeholder = "Add a Item" onChange = {itemEvent} />
-                    <button> + </button>
+                    <button onClick = {listOfItems} > + </button>
                     <ol>
-                        <li>{inputList}</li>
+                        {/* <li>{inputList}</li> */}
+
+                         {Items.map( (itemval) => {
+                             return<li>{itemval}</li>;
+                         })}
+
                     </ol>
                 </div>
             </div>
