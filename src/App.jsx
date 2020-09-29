@@ -1,6 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 const App = () => {
+
+    const [inputList, setInputList] = useState("buy mango");
+
+    const itemEvent = (event) => {
+        setInputList(event.target.value);
+    };
+
     return(
         <>
             <div className = "main_div">
@@ -8,10 +15,10 @@ const App = () => {
                     <br />
                     <h1>ToDo List</h1>
                     <br />
-                    <input type = "text" placeholder = "Add a Item" />
+                    <input type = "text" placeholder = "Add a Item" onChange = {itemEvent} />
                     <button> + </button>
                     <ol>
-                        <li>buy Apple</li>
+                        <li>{inputList}</li>
                     </ol>
                 </div>
             </div>
