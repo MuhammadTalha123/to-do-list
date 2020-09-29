@@ -21,7 +21,7 @@ const App = () => {
         setItems((oldItems) => {
             return oldItems.filter((arrElem, index) => {
                 return index !== id;
-            })
+            });
         })
     };
 
